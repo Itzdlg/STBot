@@ -1,0 +1,9 @@
+# Project exclude paths
+/target/
+/.idea/
+config.json
+data.db
+Procfile
+STBot.iml
+STBot-1.0.jar
+start.bat
