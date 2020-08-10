@@ -2,23 +2,19 @@ package me.schooltests.stbot;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import me.schooltests.stbot.core.CoreModule;
+import me.schooltests.stbot.modules.core.CoreModule;
+import me.schooltests.stbot.modules.misc.MiscModule;
 import me.schooltests.stbot.services.ListenerService;
 import me.schooltests.stbot.services.ModuleService;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Guild;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Properties;
 
 public class STBot {
     private static STBot instance;
@@ -57,7 +53,7 @@ public class STBot {
         moduleService.register(new CoreModule(moduleService));
 
         // Register modules
-
+        moduleService.register(new MiscModule(moduleService));
     }
 
     public static STBot getInstance() {

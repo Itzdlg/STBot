@@ -1,4 +1,4 @@
-package me.schooltests.stbot;
+package me.schooltests.stbot.modules;
 
 import me.schooltests.stbot.STBot;
 import me.schooltests.stbot.enums.EventPriority;

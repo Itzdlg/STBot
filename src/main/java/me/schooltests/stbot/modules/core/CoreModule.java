@@ -1,10 +1,9 @@
-package me.schooltests.stbot.core;
+package me.schooltests.stbot.modules.core;
 
-import me.schooltests.stbot.core.commands.ManageChannelsCommand;
-import me.schooltests.stbot.core.commands.ManageRolesCommand;
-import me.schooltests.stbot.core.commands.QOTDCommand;
-import me.schooltests.stbot.core.commands.SetPrefixCommand;
-import me.schooltests.stbot.Module;
+import me.schooltests.stbot.modules.core.commands.ManageChannelsCommand;
+import me.schooltests.stbot.modules.core.commands.ManageRolesCommand;
+import me.schooltests.stbot.modules.core.commands.SetPrefixCommand;
+import me.schooltests.stbot.modules.Module;
 import me.schooltests.stbot.services.ModuleService;
 
 public class CoreModule extends Module {
@@ -13,7 +12,6 @@ public class CoreModule extends Module {
         this.moduleService = moduleService;
 
         registerCommand(new SetPrefixCommand());
-        registerCommand(new QOTDCommand());
         registerCommand(new ManageRolesCommand());
         registerCommand(new ManageChannelsCommand());
     }

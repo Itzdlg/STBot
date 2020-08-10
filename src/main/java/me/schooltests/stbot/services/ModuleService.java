@@ -3,7 +3,7 @@ package me.schooltests.stbot.services;
 import me.schooltests.stbot.STBot;
 import me.schooltests.stbot.interfaces.ICommand;
 import me.schooltests.stbot.interfaces.IEvent;
-import me.schooltests.stbot.Module;
+import me.schooltests.stbot.modules.Module;
 
 import java.util.Collections;
 import java.util.HashMap;

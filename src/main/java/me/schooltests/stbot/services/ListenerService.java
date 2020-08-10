@@ -1,9 +1,9 @@
 package me.schooltests.stbot.services;
 
 import me.schooltests.stbot.STBot;
-import me.schooltests.stbot.core.CoreData;
-import me.schooltests.stbot.core.CoreModule;
-import me.schooltests.stbot.Module;
+import me.schooltests.stbot.modules.core.CoreData;
+import me.schooltests.stbot.modules.core.CoreModule;
+import me.schooltests.stbot.modules.Module;
 import me.schooltests.stbot.interfaces.ICommand;
 import me.schooltests.stbot.interfaces.IEvent;
 import net.dv8tion.jda.api.events.GenericEvent;
@@ -41,8 +41,8 @@ public class ListenerService implements EventListener {
 
                     if (matchedCommand.isPresent()) {
                         Module registration = bot.getModuleService().getCommandMap().get(matchedCommand.get());
-                        if (data.getDisabledModules(event.getGuild().getIdLong()).contains(registration)
-                                || data.getDisabledCommands(event.getGuild().getIdLong()).contains(matchedCommand.get()))
+                        if (!(registration instanceof CoreModule) && (data.getDisabledModules(event.getGuild().getIdLong()).contains(registration)
+                                || data.getDisabledCommands(event.getGuild().getIdLong()).contains(matchedCommand.get())))
                             return;
 
                         matchedCommand.get().run(event, args);
@@ -52,7 +52,7 @@ public class ListenerService implements EventListener {
             }
 
             bot.getModuleService().getEvents().stream()
-                    .filter(e -> !data.getDisabledModules(guildEvent.getGuild().getIdLong()).contains(bot.getModuleService().getEventMap().get(e)))
+                    .filter(e -> bot.getModuleService().getEventMap().get(e) instanceof CoreModule || !data.getDisabledModules(guildEvent.getGuild().getIdLong()).contains(bot.getModuleService().getEventMap().get(e)))
                     .sorted(Comparator.comparing(IEvent::getPriority))
                     .forEach(e -> e.run(guildEvent));
         }

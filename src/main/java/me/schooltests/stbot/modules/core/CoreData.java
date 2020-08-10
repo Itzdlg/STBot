@@ -1,10 +1,10 @@
-package me.schooltests.stbot.core;
+package me.schooltests.stbot.modules.core;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import me.schooltests.stbot.STBot;
 import me.schooltests.stbot.interfaces.ICommand;
-import me.schooltests.stbot.Module;
+import me.schooltests.stbot.modules.Module;
 
 import java.lang.reflect.Type;
 import java.sql.Connection;

@@ -1,7 +1,7 @@
-package me.schooltests.stbot.core.events;
+package me.schooltests.stbot.modules.core.events;
 
 import me.schooltests.stbot.STBot;
-import me.schooltests.stbot.core.CoreModule;
+import me.schooltests.stbot.modules.core.CoreModule;
 import me.schooltests.stbot.enums.EventPriority;
 import me.schooltests.stbot.interfaces.IEvent;
 import net.dv8tion.jda.api.events.guild.GenericGuildEvent;

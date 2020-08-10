@@ -1,7 +1,7 @@
-package me.schooltests.stbot.core.commands;
+package me.schooltests.stbot.modules.core.commands;
 
 import me.schooltests.stbot.STBot;
-import me.schooltests.stbot.core.CoreModule;
+import me.schooltests.stbot.modules.core.CoreModule;
 import me.schooltests.stbot.interfaces.ICommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
