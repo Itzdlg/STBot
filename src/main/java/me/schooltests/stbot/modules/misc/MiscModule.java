@@ -2,6 +2,7 @@ package me.schooltests.stbot.modules.misc;
 
 import me.schooltests.stbot.modules.Module;
 import me.schooltests.stbot.modules.core.CoreData;
+import me.schooltests.stbot.modules.misc.commands.EmbedCommand;
 import me.schooltests.stbot.modules.misc.commands.QOTDCommand;
 import me.schooltests.stbot.modules.misc.commands.SayCommand;
 import me.schooltests.stbot.services.ModuleService;
@@ -11,6 +12,7 @@ public class MiscModule extends Module {
         this.moduleService = moduleService;
         registerCommand(new QOTDCommand());
         registerCommand(new SayCommand());
+        registerCommand(new EmbedCommand());
     }
 
     @Override

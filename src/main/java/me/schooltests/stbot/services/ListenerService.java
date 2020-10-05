@@ -1,11 +1,11 @@
 package me.schooltests.stbot.services;
 
 import me.schooltests.stbot.STBot;
-import me.schooltests.stbot.modules.core.CoreData;
-import me.schooltests.stbot.modules.core.CoreModule;
-import me.schooltests.stbot.modules.Module;
 import me.schooltests.stbot.interfaces.ICommand;
 import me.schooltests.stbot.interfaces.IEvent;
+import me.schooltests.stbot.modules.Module;
+import me.schooltests.stbot.modules.core.CoreData;
+import me.schooltests.stbot.modules.core.CoreModule;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -52,7 +52,7 @@ public class ListenerService implements EventListener {
             }
 
             bot.getModuleService().getEvents().stream()
-                    .filter(e -> bot.getModuleService().getEventMap().get(e) instanceof CoreModule || !data.getDisabledModules(guildEvent.getGuild().getIdLong()).contains(bot.getModuleService().getEventMap().get(e)))
+                    .filter(e -> genericEvent.getClass().isAssignableFrom(e.getEventClass()) && (bot.getModuleService().getEventMap().get(e) instanceof CoreModule || !data.getDisabledModules(guildEvent.getGuild().getIdLong()).contains(bot.getModuleService().getEventMap().get(e))))
                     .sorted(Comparator.comparing(IEvent::getPriority))
                     .forEach(e -> e.run(guildEvent));
         }

@@ -4,6 +4,7 @@ import me.schooltests.stbot.modules.core.commands.ManageChannelsCommand;
 import me.schooltests.stbot.modules.core.commands.ManageRolesCommand;
 import me.schooltests.stbot.modules.core.commands.SetPrefixCommand;
 import me.schooltests.stbot.modules.Module;
+import me.schooltests.stbot.modules.core.events.SetDefaultsEvent;
 import me.schooltests.stbot.services.ModuleService;
 
 public class CoreModule extends Module {
@@ -14,6 +15,8 @@ public class CoreModule extends Module {
         registerCommand(new SetPrefixCommand());
         registerCommand(new ManageRolesCommand());
         registerCommand(new ManageChannelsCommand());
+
+        registerEvent(new SetDefaultsEvent());
     }
 
     @Override
